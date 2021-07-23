@@ -1,0 +1,5 @@
+apps:
+  - script    : service.js
+    name      : 'Service Mustering'
+    watch     : true
+
