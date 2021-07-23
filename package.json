@@ -1,0 +1,27 @@
+{
+  "name": "simrs-svc-pasien",
+  "version": "1.0.0",
+  "description": "microservice 3 pasien",
+  "main": "svc3-pasien.js",
+  "dependencies": {
+    "array-unique": "^0.3.2",
+    "body-parser": "^1.18.3",
+    "config": "^2.0.2",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.33",
+    "multer": "^1.4.2",
+    "mysql": "^2.16.0",
+    "promise": "^8.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://oddyvirgantara@bitbucket.org/oddyvirgantara/simrs-svc-pasien.git"
+  },
+  "author": "oddy virgantara",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/oddyvirgantara/simrs-svc-pasien#readme"
+}
