@@ -12,6 +12,29 @@ var Mustering = function(task){
     
 };
 
+function getTempatTinggal(dataQuery, callback){
+    
+    let txt = "SELECT p.id, p.nama, p.nrp, p.tempat_tinggal_lat, p.tempat_tinggal_lon "
+    txt += ", no_hp, no_wa, pk.nama as pangkat, p.jenis_pegawai, d.nama as dinas, p.satuan,"
+    txt += " u.email, "
+    txt += " FROM pegawai p"
+    txt += " LEFT JOIN pangkat pk ON p.pangkat_id = pk.id "
+    txt += " LEFT JOIN dinas d ON p.dinas_id = d.id "
+    txt += " LEFT JOIN user u ON p.id = u.pegawai_id "
+    txt += " WHERE p.created_at > 20210728000001 "
+    txt += " ORDER BY p.nrp ASC, p.created_at DESC "
+    
+    sql.query(txt,params,function(err, res){
+        if(err)
+        {
+            console.log(err)
+            callback(err,null)
+        }
+
+        else
+            callback(null,res)
+    })
+}
 
 function getPresensi(dataQuery, callback){
     let params = [dataQuery.sd, dataQuery.ed]
@@ -42,4 +65,5 @@ function getPresensi(dataQuery, callback){
 }
 
 Mustering.getPresensi = getPresensi
+Mustering.getTempatTinggal = getTempatTinggal
 module.exports= Mustering;
