@@ -16,7 +16,7 @@ var Mustering = function(task){
 function getPresensi(dataQuery, callback){
     let params = [dataQuery.sd, dataQuery.ed]
 
-    let txt = "SELECT t.id, t.kondisi_saat_ini, p.nama, p.nrp, t.tempat_tinggal_lat, t.tempat_tinggal_lon "
+    let txt = "SELECT t.id, t.kondisi_saat_ini, p.nama, p.nrp, t.lat, t.lng, p.tempat_tinggal_lat, p.tempat_tinggal_lon "
     txt += ", no_hp, no_wa, pk.nama as pangkat, p.jenis_pegawai, d.nama as dinas, p.satuan, t.kondisi_saat_ini as kondisi, t.pegawai_id as pid "
     txt += ", u.email "
     txt += " FROM presensi t "
