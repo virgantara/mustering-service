@@ -13,10 +13,10 @@ var Mustering = function(task){
 };
 
 function getTempatTinggal(dataQuery, callback){
-    
-    let txt = "SELECT p.id, p.nama, p.nrp, p.tempat_tinggal_lat, p.tempat_tinggal_lon "
+    let params =[]
+    let txt = "SELECT p.id, p.nama, p.nrp, p.tempat_tinggal_lat as lat, p.tempat_tinggal_lon as lng"
     txt += ", no_hp, no_wa, pk.nama as pangkat, p.jenis_pegawai, d.nama as dinas, p.satuan,"
-    txt += " u.email, "
+    txt += " u.email "
     txt += " FROM pegawai p"
     txt += " LEFT JOIN pangkat pk ON p.pangkat_id = pk.id "
     txt += " LEFT JOIN dinas d ON p.dinas_id = d.id "
