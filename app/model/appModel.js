@@ -12,6 +12,26 @@ var Mustering = function(task){
     
 };
 
+
+function getPenerimaVaksin(dataQuery, callback){
+    let params = []
+
+    let txt = "SELECT * "
+    txt += " FROM penerima_vaksin "
+     
+    sql.query(txt,params,function(err, res){
+        if(err)
+        {
+            console.log(err)
+            callback(err,null)
+        }
+
+        else
+            callback(null,res)
+    })
+}
+
+
 function getTempatTinggal(dataQuery, callback){
     let params =[]
     let txt = "SELECT p.id, p.nama, p.nrp, p.tempat_tinggal_lat as lat, p.tempat_tinggal_lon as lng"
@@ -64,6 +84,7 @@ function getPresensi(dataQuery, callback){
     })
 }
 
+Mustering.getPenerimaVaksin = getPenerimaVaksin
 Mustering.getPresensi = getPresensi
 Mustering.getTempatTinggal = getTempatTinggal
 module.exports= Mustering;
